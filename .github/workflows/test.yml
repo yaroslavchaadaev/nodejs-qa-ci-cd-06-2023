@@ -11,6 +11,11 @@ on:
   pull_request:
     branches: [ "main" ]
 
+  schedule:
+    # Каждый день в 6 и 18 часов запускать pipeline
+    - cron: '* 7,17 * * 1-5'
+
+
 jobs:
   build:
 
