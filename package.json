@@ -17,7 +17,7 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/nlapshin/nodejs-qa-docker/issues"
-  },,
+  },
   "homepage": "https://github.com/nlapshin/nodejs-qa-docker#readme",
   "dependencies": {
     "dotenv": "^16.0.3",
