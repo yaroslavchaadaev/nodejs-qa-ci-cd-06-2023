@@ -8,7 +8,7 @@ app.get('/hello/:name', (req, res) => {
   const { name } = req.params;
 
   res.json({
-    msg: `Hello ${name} from express version 4`
+    msg: `Hello my ${name} from express version 4`
   });
 });
 
