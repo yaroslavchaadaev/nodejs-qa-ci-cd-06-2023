@@ -64,47 +64,48 @@ jobs:
         if-no-files-found: error
         path: ./coverage
 
-    # - name: send telegram message on push
-    #   uses: appleboy/telegram-action@master
-    #   with:
-    #     to: -809053253
-    #     token: ${{ secrets.TELEGRAM_TOKEN }}
-    #     photo: ./test.png
-    #     message: |
-    #       ${{ github.actor }} created commit:
-    #       Commit message: ${{ github.event.commits[0].message }}
+    - name: send telegram message on push
+      uses: appleboy/telegram-action@master
+      with:
+        to: -809053253
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        photo: ./test.png
+        message: |
+          ${{ github.actor }} created commit:
+          Commit message: ${{ github.event.commits[0].message }}
 
-    #       Repository: ${{ github.repository }}
+          Repository: ${{ github.repository }}
 
-    #       See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+          See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
 
-    # - name: Upload artifact
-    #   uses: actions/upload-pages-artifact@v1
-    #   with:
-    #     path: './jest-html-report'
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v1
+      with:
+        path: './jest-html-report'
+
     # - name: Deploy to GitHub Pages
     #   id: deployment
     #   uses: actions/deploy-pages@v1
 
 
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-        folder: jest-html-report
-        clean: true
-        token: ${{ secrets.TOKEN }}
+    # - name: Deploy
+    #   uses: JamesIves/github-pages-deploy-action@v4
+    #   with:
+    #     folder: jest-html-report
+    #     clean: true
+    #     token: ${{ secrets.TOKEN }}
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: './jest-html-report'
+  # deploy:
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   steps:
+  #     - name: Upload artifact
+  #       uses: actions/upload-pages-artifact@v1
+  #       with:
+  #         path: './jest-html-report'
       # - name: Deploy to GitHub Pages
       #   id: deployment
       #   uses: actions/deploy-pages@v1
