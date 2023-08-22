@@ -10,7 +10,6 @@ jobs:
           allure-endpoint: ${{ secrets.ALLURE_ENDPOINT }}
           allure-token: ${{ secrets.ALLURE_TOKEN }}
           allure-project-id: ${{ secrets.ALLURE_PROJECT_ID }}
-      - run: npm install
       - run: allurectl watch -- npm run test
         env: 
           ALLURE_RESULTS: ./allure-results
