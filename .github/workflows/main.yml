@@ -5,4 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Allure installation
-        run: echo Hello Github Actions!
+        uses: allure-framework/setup-allurectl@v1
+        with: 
+          allure-endpoint: ${{ secrets.ALLURE_ENDPOINT }}
+          allure-token: ${{ secrets.ALLURE_TOKEN }}
+          allure-project-id: ${{ secrets.ALLURE_PROJECT_ID }}
+      - run: ./allurectl watch -- npm run test
+        env: 
+          ALLURE_RESULTS: ./allure-results
