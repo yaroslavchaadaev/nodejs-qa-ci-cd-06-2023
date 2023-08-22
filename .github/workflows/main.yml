@@ -1,0 +1,8 @@
+name: Test Workflow with Allure
+on: workflow_dispatch
+jobs:
+  allure-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Allure installation
+        run: echo Hello Github Actions!
