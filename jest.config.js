@@ -4,13 +4,9 @@ export default {
   "transform": {
     "^.+\\.[t|j]sx?$": "babel-jest"
   },
-  reporters: [
-    "default", 
-    [
-      "jest-html-reporters", {
-        "publicPath": "./jest-html-report",
-        "filename": "report.html"
-      }
-    ]
+  reporters: ['default', 'jest-allure'],
+  testRunner: 'jest-jasmine2',
+  setupFilesAfterEnv: [
+    'jest-allure/dist/setup',
   ]
 }
