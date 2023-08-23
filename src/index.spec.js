@@ -13,11 +13,14 @@ describe('GET /hello/:name', () => {
   });
 
   test('Should return welcome string', async () => {
+    reporter.startStep('GET-запрос')
     const res = await supertest(config.url)
       .get('/hello/nik')
       .set('Accept', 'application/json');
-
-    expect(res.body).toEqual({ msg: 'Hello my nik from express version 4' })
+    reporter.endStep()
+    reporter.startStep('Текст сообщения совпадает с ожидаемым')
+    expect(res.body).toEqual({ msg: 'Hello my nik from express version 3' })
+    reporter.endStep()
   });
 
   test('Should return welcome string 2', async () => {
