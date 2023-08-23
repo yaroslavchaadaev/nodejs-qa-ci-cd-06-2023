@@ -23,4 +23,4 @@ jobs:
           allure-project-id: ${{ secrets.ALLURE_PROJECT_ID }}
       - run: allurectl watch -- npm run test
         env: 
-          ALLURE_RESULTS: ./jest-html-report
+          ALLURE_RESULTS: ./allure-results
