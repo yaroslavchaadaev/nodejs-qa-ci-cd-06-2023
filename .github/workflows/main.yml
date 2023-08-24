@@ -1,5 +1,10 @@
 name: Test Workflow with Allure
 on: workflow_dispatch
+
+env:
+  ALLURE_TESTPLAN_PATH: "./testplan.json"
+  ALLURE_RESULTS: ./allure-results
+
 jobs:
   allure-tests:
     runs-on: ubuntu-latest
@@ -23,6 +28,3 @@ jobs:
           allure-project-id: ${{ secrets.ALLURE_PROJECT_ID }}
       - run: allurectl job-run plan --output-file ${ALLURE_TESTPLAN_PATH} 
       - run: allurectl watch -- npm run test
-        env:
-          ALLURE_TESTPLAN_PATH: "./testplan.json"
-          ALLURE_RESULTS: ./allure-results
