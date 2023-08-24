@@ -1,5 +1,14 @@
 name: Test Workflow with Allure
-on: workflow_dispatch
+on: 
+  push:
+  workflow_dispatch:
+      inputs:
+        ALLURE_JOB_RUN_ID:
+          description: "ALLURE_JOB_RUN_ID service parameter. Leave blank."
+          required: false
+        ALLURE_USERNAME:
+          description: "ALLURE_USERNAME service parameter. Leave blank"
+          required: false
 jobs:
   allure-tests:
     runs-on: ubuntu-latest
