@@ -19,7 +19,7 @@ describe('GET /hello/:name', () => {
       .set('Accept', 'application/json');
     reporter.endStep()
     reporter.startStep('Текст сообщения совпадает с ожидаемым')
-    expect(res.body).toEqual({ msg: 'Hello my nik from express version 4' })
+    expect(res.body).toEqual({ msg: 'Hello my nik from express version 3' })
     reporter.endStep()
   });
 
