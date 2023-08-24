@@ -22,5 +22,6 @@ jobs:
           allure-token: ${{ secrets.ALLURE_TOKEN }}
           allure-project-id: ${{ secrets.ALLURE_PROJECT_ID }}
       - run: allurectl watch -- npm run test
-        env: 
+        env:
+          ALLURE_TESTPLAN_PATH: "./testplan.json"
           ALLURE_RESULTS: ./allure-results
